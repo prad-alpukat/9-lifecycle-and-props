@@ -1,9 +1,23 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Home() {
+    const [count, setCount] = useState(0)
+
+    useEffect(() => {
+        console.log("update count", count)
+    }, [count])
+
     return (
-        <div className='flex items-center justify-center h-screen'>
-            <h1 className='text-3xl font-bold'>Home</h1>
+        <div className='container py-5'>
+            <p>{count}</p>
+            <button
+                className='bg-blue-500 p-3'
+                onClick={() => {
+                    setCount(count + 1)
+                }}
+            >
+                increment
+            </button>
         </div>
     )
 }
